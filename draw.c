@@ -112,16 +112,24 @@ void    draw_strs(t_data *data)
   int       colors_coll;
   const int px_extra = (EXTRA_HEIGHT * TILE_SIZE);
 
-  str = ft_itoa(data->perso.moove_count);
+	if (data->perso.moove_count == 0)
+		str = "0";
+	else
+		str = ft_itoa(data->perso.moove_count);
 	mlx_string_put(data->mlx, data->win, 15, (data->height_win - px_extra + 25),
 		encode_trgb(255, 0, 0, 0), str);
-  free(str);
-  str = ft_itoa(data->perso.nb_collectible);
-  if (data->perso.nb_collectible != data->collectibles)
-    colors_coll = encode_trgb(255, 255, 0, 0);
-  else
-    colors_coll = encode_trgb(255, 58, 200, 11);
+	if (str && data->perso.moove_count != 0)
+		free(str);
+	if (data->perso.nb_collectible == 0)
+		str = "0";
+	else
+		str = ft_itoa(data->perso.nb_collectible);
+	colors_coll = encode_trgb(255, 255, 0, 0);
+	if (data->perso.nb_collectible == data->collectibles)
+		colors_coll = encode_trgb(255, 58, 200, 11);
 	mlx_string_put(data->mlx, data->win, 10 + 60, (data->height_win - px_extra + 25),
 		colors_coll, str);
-	free(str);
+	if (data->perso.nb_collectible != 0 && str)
+		free(str);
+	str = NULL;
 }

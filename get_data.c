@@ -114,5 +114,5 @@ void	load_data(t_data *data)
 	map_data(data);
 	player_data(data);
 	other_data(data);
-  enemy_data(data);
+	enemy_data(data);
 }
