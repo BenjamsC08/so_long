@@ -28,7 +28,7 @@ static int	*get_player_img_data(t_data *data)
 	return (tiles_data);
 }
 
-static int	*get_enemy_img_data(t_data *data)
+static int	*get_enemy_img_data(t_data *data, int y, int x)
 {
 	int	*tiles_data;
 
@@ -41,6 +41,8 @@ static int	*get_enemy_img_data(t_data *data)
 		tiles_data = data->enemy.up_data;
 	if (data->enemy.dir == 'D')
 		tiles_data = data->enemy.down_data;
+	data->enemy.y = y;
+	data->enemy.x = x;
 	return (tiles_data);
 }
 
@@ -49,7 +51,6 @@ static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 	int	*tiles_data;
 
 	tiles_data = NULL;
-  //ft_printf("%c", data->map.win[pos[0]][pos[1]]);
 	if (data->map.win[pos[0]][pos[1]] == '1')
 		tiles_data = data->tiles.wall_data;
 	else if (data->map.win[pos[0]][pos[1]] == 'P')
@@ -58,23 +59,20 @@ static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 		data->perso.x = pos[1];
 		tiles_data = get_player_img_data(data);
 	}
-	else if (data->map.win[pos[0]][pos[1]] == 'Z')
-	{
-		data->enemy.y = pos[0];
-		data->enemy.x = pos[1];
-		tiles_data = get_enemy_img_data(data);
-	}
 	else if (data->map.win[pos[0]][pos[1]] == 'C')
 		tiles_data = data->tiles.coll_data;
-	else if (data->map.win[pos[0]][pos[1]] == 'E')
-    if (data->perso.nb_collectible == data->collectibles)
-      tiles_data = data->tiles.door_o_data;
-    else
-		  tiles_data = data->tiles.door_c_data;
+	else if (data->map.win[pos[0]][pos[1]] == 'E'
+			&& data->perso.nb_collectible == data->collectibles)
+		tiles_data = data->tiles.door_o_data;
+	else if (data->map.win[pos[0]][pos[1]] == 'E'
+			&& data->perso.nb_collectible != data->collectibles)
+		tiles_data = data->tiles.door_c_data;
+	else if (data->map.win[pos[0]][pos[1]] == 'Z')
+		tiles_data = get_enemy_img_data(data, pos[0], pos[1]);
 	else
 		tiles_data = data->tiles.ground_data;
-  if (tiles_data != NULL)
-	  data->map.img_data[big_pixel] = tiles_data[small_pixel];
+	if (tiles_data != NULL)
+		data->map.img_data[big_pixel] = tiles_data[small_pixel];
 }
 
 void	draw_map(t_data *data, int *big_pixel, int *small_pixel)

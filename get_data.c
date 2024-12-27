@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 20:36:43 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/23 02:10:09 by benjamsc         ###   ########.fr       */
+/*   Created: 2024/12/27 00:13:11 by benjamsc          #+#    #+#             */
+/*   Updated: 2024/12/27 01:27:17 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ static void	win_data(t_data *data)
 	data->map.y_max = count_lines(data->path);
 	data->map.bp = get_map(data, data->path, &data->map.x_max, data->map.y_max);
 	if (!data->map.bp)
-		close_all(data);
+	{
+		classic_close(data);
+		return ;
+	}
 	if (data->map.y_max > MAX_Y_WIN || data->map.x_max > MAX_X_WIN)
 	{
 		data->width_win = MAX_X_WIN * TILE_SIZE;
@@ -33,9 +36,6 @@ static void	win_data(t_data *data)
 		data->map.win = data->map.bp;
 		data->map.resize = 0;
 	}
-	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, data->width_win,
-			data->height_win, "so_long");
 }
 
 static void	map_data(t_data *data)
@@ -93,11 +93,11 @@ static void	player_data(t_data *data)
 
 static void	other_data(t_data *data)
 {
-  int x;
-  int y;
+	int	x;
+	int	y;
 
-  x = 800;
-  y = 64;
+	x = WIDTH_OVL;
+	y = HEIGHT_OVL;
 	data->tiles.coll_ptr = mlx_xpm_file_to_image(data->mlx,
 			"./textures/collectible/bag.xpm", &data->tiles.size,
 			&data->tiles.size);
@@ -108,11 +108,22 @@ static void	other_data(t_data *data)
 	data->map.asset_data = (int *)mlx_get_data_addr(data->map.asset_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }
-void	load_data(t_data *data)
+
+int	load_data(t_data *data)
 {
 	win_data(data);
+	if (!data->map.bp)
+		return (0);
+	data->mlx = mlx_init();
+	if (!data->mlx)
+		return (0);
+	data->win = mlx_new_window(data->mlx, data->width_win,
+			data->height_win, "so_long");
+	if (!data->win)
+		return (0);
 	map_data(data);
 	player_data(data);
 	other_data(data);
 	enemy_data(data);
+	return (1);
 }

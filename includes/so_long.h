@@ -21,6 +21,8 @@
 # define MAX_X_WIN 25	//25 time Tile_size
 # define MAX_Y_WIN 17	//17 time TILE_SIZE
 # define EXTRA_HEIGHT 2
+# define HEIGHT_OVL 64
+# define WIDTH_OVL 800
 /* e : 101 q:113 shift:65505 ctrl:65507	*/
 # define U_ARROW 65362
 # define L_ARROW 65361
@@ -95,8 +97,8 @@ typedef struct s_enemy
 	int		*left_data;
 	int		y;
 	int		x;
-  char  dir;
-}       t_enemy;
+	char	dir;
+}			t_enemy;
 
 typedef struct s_data
 {
@@ -109,7 +111,7 @@ typedef struct s_data
 	t_map		map;
 	t_tiles		tiles;
 	t_perso		perso;
-  t_enemy  enemy;
+	t_enemy		enemy;
 }				t_data;
 
 //
@@ -145,13 +147,18 @@ void	err_management_map(int err_code, char *path_map);
 //
 //frees.c
 //
-void	free_tabtab(char **strs);
+void	classic_close(t_data *data);
 int		close_all(t_data *data);
+void	free_tabtab(char **strs);
 void	free_aprox_map(char **map, int i);
+//
+//free_utils.c
+//
+void	free_img(t_data *data);
 //
 //get_data.c
 //
-void	load_data(t_data *data);
+int		load_data(t_data *data);
 //
 //map_management.c
 //
@@ -164,7 +171,7 @@ int		create_window(char *path_map);
 //draw_map.c
 //
 void	draw_map(t_data *data, int *big_pixel, int *small_pixel);
-void  draw_strs(t_data *data);
+void	draw_strs(t_data *data);
 //
 //moove.c
 //

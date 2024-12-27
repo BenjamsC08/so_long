@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:18:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/23 02:00:16 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/27 00:26:25 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,6 @@ int	check_map(char **strs, char *path_map, int nb_lines, int len_line)
 	int		nb_collectible;
 
 	nb_collectible = 0;
-	if (nb_collectible == 1)
-		ft_printf("woi");
 	err_handler = check_extension_path(path_map);
 	if (err_handler < 0)
 		return (err_management_map(err_handler, path_map), 0);
