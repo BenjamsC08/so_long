@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:56:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/23 01:30:29 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/29 17:17:09 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ void	draw_map(t_data *data, int *big_pixel, int *small_pixel)
 	}
 }
 
-void    draw_strs(t_data *data)
+void	draw_strs(t_data *data)
 {
-  char	    *str;
-  int       colors_coll;
-  const int px_extra = (EXTRA_HEIGHT * TILE_SIZE);
+	char		*str;
+	int			colors_coll;
+	const int	px_extra = (EXTRA_HEIGHT * TILE_SIZE);
 
 	if (data->perso.moove_count == 0)
 		str = "0";
@@ -125,7 +125,8 @@ void    draw_strs(t_data *data)
 	colors_coll = encode_trgb(255, 255, 0, 0);
 	if (data->perso.nb_collectible == data->collectibles)
 		colors_coll = encode_trgb(255, 58, 200, 11);
-	mlx_string_put(data->mlx, data->win, 10 + 60, (data->height_win - px_extra + 25),
+	mlx_string_put(data->mlx, data->win, 10 + 60,
+		(data->height_win - px_extra + 25),
 		colors_coll, str);
 	if (data->perso.nb_collectible != 0 && str)
 		free(str);

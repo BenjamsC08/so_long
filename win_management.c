@@ -12,6 +12,15 @@
 
 #include "so_long.h"
 
+int	good_ending(t_data *data)
+{
+	(void)data;
+	ft_printf("\n-------------------------------------------------------------");
+	ft_printf("\n--------------------------YOU WIN !--------------------------");
+	ft_printf("\n-------------------------------------------------------------");
+	return (1);
+}
+
 static int	key_hook(int keycode, t_data *data)
 {
 	int		big_p;

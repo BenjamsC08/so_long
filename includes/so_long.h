@@ -180,5 +180,6 @@ void	moove(t_data *data, int keycode);
 //enemy.c
 //
 void	enemy_data(t_data *data);
+int		good_ending(t_data *data);
 
 #endif
