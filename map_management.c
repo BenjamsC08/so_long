@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 21:28:58 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 06:21:24 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:15:53 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	*get_start_point(t_data *data)
 	s_pos = (int *)malloc(2 * sizeof(int));
 	if (!s_pos)
 		return (NULL);
-	p_pos = get_player_pos(data->map.bp);
+	p_pos = get_pos(data->map.bp, 'P');
 	if (p_pos[0] < 9)
 		s_pos[0] = 0;
 	else if ((data->map.y_max - p_pos[0]) < 9)

@@ -6,18 +6,18 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:55:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 05:10:53 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:18:50 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+// can add a to_swap in the function to swap P or Z when i call it
 static void	swap_case(t_data *data, char axis, char to)
 {
 	const int	step = (const int)data->perso.step;
 	int			*pos;
 
-	pos = get_player_pos(data->map.bp);
+	pos = get_pos(data->map.bp, 'P');
 	if (to == 'C')
 	{
 		to = '0';
@@ -48,7 +48,7 @@ static void	pre_swap(t_data *data)
 	const int	step = (const int)data->perso.step;
 	char		next_one;
 
-	pos = get_player_pos(data->map.bp);
+	pos = get_pos(data->map.bp, 'P');
 	next_one = map[pos[0]][(pos[1] + step)];
 	if (data->perso.dir == 'R' || data->perso.dir == 'L')
 	{

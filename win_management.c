@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:45:51 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 03:47:05 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 08:15:04 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int	key_hook(int keycode, t_data *data)
 	if (keycode == U_ARROW || keycode == L_ARROW
 		|| keycode == R_ARROW || keycode == D_ARROW)
 		moove(data, keycode);
+	enemy_moove(data);
 	draw_map(data, &big_p, &small_p);
 	mlx_put_image_to_window(data->mlx, data->win, data->map.img_ptr,
 		0, 0);
@@ -74,3 +75,4 @@ int	create_window(char *path_map)
 	mlx_loop(data.mlx);
 	return (0);
 }
+//int		mlx_loop_hook(void *mlx_ptr, int (*f)(), void *param);

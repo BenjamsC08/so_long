@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:18:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 04:26:44 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:17:22 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static int	check_map_doable(char **strs, int nb_lines, int len_line)
 	int			y;
 	int			*pos_p;
 
-	pos_p = get_player_pos(strs);
+	pos_p = get_pos(strs, 'P');
 	y = 0;
 	flood_fill(strs, pos_p[0], pos_p[1]);
 	free(pos_p);

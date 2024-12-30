@@ -1,7 +1,7 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g3
 NAME = so_long
-SRCS = check_map.c check_map_utils.c colors_utils.c errors.c frees.c get_data.c get_map.c main.c map_management.c draw.c win_management.c moove.c enemy.c free_utils.c utils.c
+SRCS = check_map.c check_map_utils.c colors_utils.c draw.c enemy.c errors.c frees.c free_utils.c get_data.c get_map.c main.c map_management.c moove.c utils.c win_management.c
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = -Lmlx_linux -Llibft -L/usr/lib
 LIB_NAME = -lmlx_Linux -lft -lXext -lX11 -lm -lz 

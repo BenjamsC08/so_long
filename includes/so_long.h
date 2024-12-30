@@ -98,6 +98,7 @@ typedef struct s_enemy
 	int		y;
 	int		x;
 	char	dir;
+	int		step;
 }			t_enemy;
 
 typedef struct s_data
@@ -132,7 +133,7 @@ int		only_one_in_line(char *str);
 int		not_allowed_char(char c);
 void	flood_fill(char **strs, int y, int x);
 char	**dup_map(char **strs, int nb_lines);
-int		*get_player_pos(char **strs);
+int		*get_pos(char **strs, char to_find);
 //
 //colors_utils.c
 //
@@ -168,6 +169,7 @@ char	**extract_bp_to_win(t_data *data, int x);
 //win_management.c
 //
 int		create_window(char *path_map);
+int		ending(t_data *data, char to, int *pos);
 //
 //draw_map.c
 //
@@ -181,7 +183,7 @@ void	moove(t_data *data, int keycode);
 //enemy.c
 //
 void	enemy_data(t_data *data);
-int		ending(t_data *data, char to, int *pos);
+void	enemy_moove(t_data *data);
 //
 //utils.c
 //

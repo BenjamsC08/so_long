@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:40:08 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 04:28:36 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:16:53 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	**dup_map(char **strs, int nb_lines)
 	return (strs_c_ptr);
 }
 
-int	*get_player_pos(char **strs)
+int	*get_pos(char **strs, char to_find)
 {
 	int	*tab;
 	int	x;
@@ -84,9 +84,9 @@ int	*get_player_pos(char **strs)
 	while (strs[y])
 	{
 		x = 0;
-		while (strs[y][x] != '\n')
+		while (strs[y][x] != '\n' && strs[y][x])
 		{
-			if (strs[y][x] == 'P')
+			if (strs[y][x] == to_find)
 			{
 				tab[0] = y;
 				tab[1] = x;
