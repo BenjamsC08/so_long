@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 07:54:19 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 04:26:04 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:08:22 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	err_management_map(int err_code, char *path_map)
 	if (err_code == -1)
 		ft_printf("The map is not rectangular\ncheck : %s\n", path_map);
 	if (err_code == -2 || err_code == -3)
-		ft_printf("The map is not closed\ncheck : %s\n%d\n", path_map, err_code);
+		ft_printf("The map is not closed\ncheck : %s\n", path_map);
 	if (err_code == -4)
 		ft_printf("The map have not allowed char,\n\
 allowed char : 01PECZ\ncheck : %s\n", path_map);
