@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:56:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/29 17:17:09 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 03:35:16 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	draw_strs(t_data *data)
 	else
 		str = ft_itoa(data->perso.nb_collectible);
 	colors_coll = encode_trgb(255, 255, 0, 0);
-	if (data->perso.nb_collectible == data->collectibles)
+	if (is_ok(data))
 		colors_coll = encode_trgb(255, 58, 200, 11);
 	mlx_string_put(data->mlx, data->win, 10 + 60,
 		(data->height_win - px_extra + 25),

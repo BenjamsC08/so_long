@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:40:08 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/19 20:22:51 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 04:28:36 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	only_one_in_line(char *str)
 {
-	while (*str != '\n')
+	while (*str)
 	{
+		if (*str == '\n')
+			break ;
 		if (*str != '1')
 			return (0);
 		str++;

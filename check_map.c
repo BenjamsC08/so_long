@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:18:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/27 00:26:25 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 04:26:44 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_map_format(char **strs, int nb_lines, int base_len)
 	y = -1;
 	while (++y < nb_lines)
 	{
-		if (((int)ft_strlen(strs[y]) - 1) != base_len)
+		if (ft_nl_strlen(strs[y]) != base_len)
 			return (-1);
 		x = -1;
 		while (++x < base_len)

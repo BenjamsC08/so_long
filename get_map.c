@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 07:23:19 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/23 02:09:17 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 04:21:57 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	**get_map(t_data *data, char *path_map, int *len_line, int nb_lines)
 	while (i < nb_lines && str != NULL)
 	{
 		if (i == 0)
-			*len_line = (ft_strlen(str) - 1);
+			*len_line = ft_nl_strlen(str);
 		strs[i++] = ft_strdup(str);
 		free(str);
 		str = get_next_line(fd);

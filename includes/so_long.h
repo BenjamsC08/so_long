@@ -180,6 +180,11 @@ void	moove(t_data *data, int keycode);
 //enemy.c
 //
 void	enemy_data(t_data *data);
-int		good_ending(t_data *data);
+int		ending(t_data *data, char to, int *pos);
+//
+//utils.c
+//
+int		is_ok(t_data *data);
+int		ft_nl_strlen(char *str);
 
 #endif

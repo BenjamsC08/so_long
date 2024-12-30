@@ -6,18 +6,26 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:45:51 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/27 01:27:05 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 03:47:05 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	good_ending(t_data *data)
+int	ending(t_data *data, char to, int *pos)
 {
-	(void)data;
+	if (pos)
+		free(pos);
 	ft_printf("\n-------------------------------------------------------------");
-	ft_printf("\n--------------------------YOU WIN !--------------------------");
+	if (to == 'E')
+		ft_printf("\n--------------------------YOU WIN !\
+--------------------------");
+	if (to == 'Z')
+		ft_printf("\n-------------------------YOU LOOSE !\
+-------------------------");
 	ft_printf("\n-------------------------------------------------------------");
+	ft_printf("\nin : %d step\n", data->perso.moove_count);
+	close_all(data);
 	return (1);
 }
 
