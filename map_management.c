@@ -6,24 +6,26 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 21:28:58 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/22 23:08:52 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 06:21:24 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	**alloc_map(void)
+static char	**alloc_map(t_data *data)
 {
-	char	**map;
-	int		i;
+	char		**map;
+	int			i;
+	const int	max_y = (data->height_win >> 5) - EXTRA_HEIGHT;
+	const int	max_x = (data->width_win >> 5);
 
-	map = (char **)ft_calloc(MAX_Y_WIN + 1, sizeof(char *));
+	map = (char **)ft_calloc(max_y + 1, sizeof(char *));
 	if (!map)
 		return (NULL);
 	i = 0;
-	while (i < MAX_Y_WIN)
+	while (i < max_y)
 	{
-		map[i] = (char *)ft_calloc(MAX_X_WIN + 2, sizeof(char));
+		map[i] = (char *)ft_calloc(max_x + 2, sizeof(char));
 		if (!map[i])
 		{
 			free_aprox_map(map, i);
@@ -36,8 +38,10 @@ static char	**alloc_map(void)
 
 static int	*get_start_point(t_data *data)
 {
-	int	*p_pos;
-	int	*s_pos;
+	int			*p_pos;
+	int			*s_pos;
+	const int	max_y = (data->height_win >> 5) - EXTRA_HEIGHT;
+	const int	max_x = (data->width_win >> 5);
 
 	s_pos = (int *)malloc(2 * sizeof(int));
 	if (!s_pos)
@@ -46,35 +50,36 @@ static int	*get_start_point(t_data *data)
 	if (p_pos[0] < 9)
 		s_pos[0] = 0;
 	else if ((data->map.y_max - p_pos[0]) < 9)
-		s_pos[0] = p_pos[0] - (MAX_Y_WIN - (data->map.y_max - p_pos[0]));
+		s_pos[0] = p_pos[0] - (max_y - (data->map.y_max - p_pos[0]));
 	else
 		s_pos[0] = p_pos[0] - 8;
 	if (p_pos[1] < 13)
 		s_pos[1] = 0;
 	else if ((data->map.x_max - p_pos[1]) < 13)
-		s_pos[1] = p_pos[1] - (MAX_X_WIN - (data->map.x_max - p_pos[1]));
+		s_pos[1] = p_pos[1] - (max_x - (data->map.x_max - p_pos[1]));
 	else
 		s_pos[1] = p_pos[1] - 12;
 	free(p_pos);
 	return (s_pos);
 }
 
-char	**extract_bp_to_win(t_data *data)
+char	**extract_bp_to_win(t_data *data, int k)
 {
 	int		*start;
 	char	**map;
 	int		y;
 	int		x;
 
-	map = alloc_map();
+	resize_map(data, k);
+	map = alloc_map(data);
 	if (!map)
 		return (NULL);
 	start = get_start_point(data);
 	y = -1;
-	while (++y < MAX_Y_WIN)
+	while (++y < ((data->height_win >> 5) - EXTRA_HEIGHT))
 	{
 		x = -1;
-		while (++x < MAX_X_WIN)
+		while (++x < (data->width_win >> 5))
 		{
 			map[y][x] = data->map.bp[start[0] + y][start[1] + x];
 		}

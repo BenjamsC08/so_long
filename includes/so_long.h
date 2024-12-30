@@ -108,6 +108,7 @@ typedef struct s_data
 	int			height_win;
 	char		*path;
 	int			collectibles;
+	int			type_resize;
 	t_map		map;
 	t_tiles		tiles;
 	t_perso		perso;
@@ -162,7 +163,7 @@ int		load_data(t_data *data);
 //
 //map_management.c
 //
-char	**extract_bp_to_win(t_data *data);
+char	**extract_bp_to_win(t_data *data, int x);
 //
 //win_management.c
 //
@@ -186,5 +187,6 @@ int		ending(t_data *data, char to, int *pos);
 //
 int		is_ok(t_data *data);
 int		ft_nl_strlen(char *str);
+void	resize_map(t_data *data, int x);
 
 #endif

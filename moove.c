@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:55:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 03:46:24 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 05:10:53 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	swap_case(t_data *data, char axis, char to)
 	if (data->map.win != data->map.bp)
 	{
 		free_tabtab(data->map.win);
-		data->map.win = extract_bp_to_win(data);
+		data->map.win = extract_bp_to_win(data, data->type_resize);
 	}
 	free(pos);
 }

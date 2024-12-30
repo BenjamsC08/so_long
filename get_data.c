@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:13:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 04:01:34 by benjamsc         ###   ########.fr       */
+/*   Updated: 2024/12/30 06:11:35 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ static void	win_data(t_data *data)
 		classic_close(data);
 		return ;
 	}
-	if (data->map.y_max > MAX_Y_WIN || data->map.x_max > MAX_X_WIN)
+	if (data->map.y_max > MAX_Y_WIN)
 	{
-		data->width_win = MAX_X_WIN * TILE_SIZE;
-		data->height_win = (MAX_Y_WIN + EXTRA_HEIGHT) * TILE_SIZE;
-		data->map.win = extract_bp_to_win(data);
-		data->map.resize = 1;
+		if (data->map.x_max > MAX_X_WIN)
+			data->map.win = extract_bp_to_win(data, 3);
+		else
+			data->map.win = extract_bp_to_win(data, 1);
 	}
+	else if (data->map.x_max > MAX_X_WIN)
+		data->map.win = extract_bp_to_win(data, 2);
 	else
 	{
 		data->width_win = data->map.x_max * TILE_SIZE;
