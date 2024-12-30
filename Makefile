@@ -1,7 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/30 14:24:07 by benjamsc          #+#    #+#              #
+#    Updated: 2024/12/30 14:25:14 by benjamsc         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g3
 NAME = so_long
-SRCS = check_map.c check_map_utils.c colors_utils.c draw.c enemy.c errors.c frees.c free_utils.c get_data.c get_map.c main.c map_management.c moove.c utils.c win_management.c
+SRCS = srcs/check_map.c srcs/check_map_utils.c srcs/colors_utils.c srcs/draw.c srcs/enemy.c srcs/errors.c srcs/frees.c srcs/free_utils.c srcs/get_data.c srcs/get_map.c srcs/main.c srcs/map_management.c srcs/moove.c srcs/utils.c srcs/win_management.c
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = -Lmlx_linux -Llibft -L/usr/lib
 LIB_NAME = -lmlx_Linux -lft -lXext -lX11 -lm -lz 
@@ -10,7 +22,7 @@ INCLUDE_PATH = -I/usr/include -Imlx_linux -Ilibft/includes -Iincludes
 all: MLX LIBFT $(NAME)
 
 MLX:
-	@cd mlx_linux >> /dev/null && ./configure >> /dev/null && cd .. >> /dev/null
+	@cd mlx_linux >> /dev/null && make >> /dev/null && cd .. >> /dev/null
 
 LIBFT:
 	@cd libft >> /dev/null && make >> /dev/null && cd .. >> /dev/null

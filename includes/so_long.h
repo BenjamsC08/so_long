@@ -87,6 +87,7 @@ typedef struct s_map
 
 typedef struct s_enemy
 {
+	int		is_on;
 	void	*down_ptr;
 	int		*down_data;
 	void	*up_ptr;
@@ -120,12 +121,12 @@ typedef struct s_data
 //get_map.c
 //
 int		count_lines(char *path_map);
-char	**get_map(t_data *data, char *path_map, int *len_line, int nb_lines);
+char	**get_map(t_data *data, int *len_line);
 //
 //check_map.c
 //
 //
-int		check_map(char **strs, char *path_map, int nb_lines, int len_line);
+int		check_map(char **strs, t_data *data, int len_line);
 //
 //check_map_utils.c
 //
