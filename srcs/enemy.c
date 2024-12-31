@@ -76,8 +76,10 @@ static void	pre_swap(t_data *data, int *p_pos, int *z_pos)
 		if (next_one != '1' && next_one != 'E' && next_one != 'P'
 			&& next_one != 'C')
 			swap_case(data, 'X', next_one);
+		else if (next_one == '1')
+			data->enemy.dir = 'U';
 	}
-	else if (data->enemy.dir == 'U' || data->enemy.dir == 'D')
+	if (data->enemy.dir == 'U' || data->enemy.dir == 'D')
 	{
 		next_one = map[(z_pos[0] + step)][z_pos[1]];
 		if (next_one != '1' && next_one != 'E' && next_one != 'P'

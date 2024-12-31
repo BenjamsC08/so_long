@@ -54,6 +54,28 @@ static int	key_hook(int keycode, t_data *data)
 	return (0);
 }
 
+/*int	loop_hook(t_data *data)*/
+/*{*/
+/*	static int frame = 0;*/
+/*	int		big_p;*/
+/*	int		small_p;*/
+/**/
+/*	ft_printf("frame %d \n", frame);*/
+/*    if (frame % 100000 == 0)*/
+/*    {*/
+/*        data->perso.dir = 'U';*/
+/*        draw_map(data, &big_p, &small_p);*/
+/*		mlx_put_image_to_window(data->mlx, data->win, data->map.img_ptr,*/
+/*			0, 0);*/
+/*		mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr,*/
+/*			0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));*/
+/*		draw_strs(data);*/
+/*		frame = 0;*/
+/*    }*/
+/*    frame++;*/
+/*	return (0);*/
+/*}*/
+
 int	create_window(char *path_map)
 {
 	t_data		data;
@@ -73,6 +95,7 @@ int	create_window(char *path_map)
 	draw_strs(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_hook, &data);
 	mlx_hook(data.win, 17, 1L << 0, close_all, &data);
+	/*mlx_loop_hook(data.mlx, loop_hook, &data); */
 	mlx_loop(data.mlx);
 	return (0);
 }
