@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:56:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 03:35:16 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:22:47 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 		tiles_data = data->tiles.coll_data;
 	else if (data->map.win[pos[0]][pos[1]] == 'E'
 			&& data->perso.nb_collectible == data->collectibles)
-		tiles_data = data->tiles.door_o_data;
+		tiles_data = data->tiles.door_data[1];
 	else if (data->map.win[pos[0]][pos[1]] == 'E'
 			&& data->perso.nb_collectible != data->collectibles)
-		tiles_data = data->tiles.door_c_data;
+		tiles_data = data->tiles.door_data[0];
 	else if (data->map.win[pos[0]][pos[1]] == 'Z')
 		tiles_data = get_enemy_img_data(data, pos[0], pos[1]);
 	else

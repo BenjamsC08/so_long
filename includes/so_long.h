@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:21:02 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/03 09:23:11 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:16:54 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include "libft.h"
 # include "path_textures.h"
+# include "struct_solong.h"
 
 # define TILE_SIZE 32
 # define MAX_X_WIN 25	//25 time Tile_size
@@ -34,89 +35,6 @@
 # define D_KEY 100
 # define S_KEY 115
 # define ESC 65307
-
-typedef unsigned char	t_byte;
-
-typedef struct s_tiles
-{
-	int		size;
-	void	*wall_ptr;
-	int		*wall_data;
-	void	*ground_ptr;
-	int		*ground_data;
-	void	*door_o_ptr;
-	int		*door_o_data;
-	void	*door_c_ptr;
-	int		*door_c_data;
-	void	*coll_ptr;
-	int		*coll_data;
-}			t_tiles;
-
-typedef struct s_perso
-{
-	char	dir;
-	int		step;
-	int		moove_count;
-	int		nb_collectible;
-	void	*down_ptr;
-	int		*down_data;
-	void	*up_ptr;
-	int		*up_data;
-	void	*right_ptr;
-	int		*right_data;
-	void	*left_ptr;
-	int		*left_data;
-	int		y;
-	int		x;
-}			t_perso;
-
-typedef struct s_map
-{
-	char	**win;
-	char	**bp;
-	int		resize;
-	void	*img_ptr;
-	int		*img_data;
-	void	*asset_ptr;
-	int		*asset_data;
-	int		bpp;
-	int		endian;
-	int		line_len;
-	int		x_max;
-	int		y_max;
-}			t_map;
-
-typedef struct s_enemy
-{
-	int		is_on;
-	void	*down_ptr;
-	int		*down_data;
-	void	*up_ptr;
-	int		*up_data;
-	void	*right_ptr;
-	int		*right_data;
-	void	*left_ptr;
-	int		*left_data;
-	int		y;
-	int		x;
-	char	dir;
-	int		step;
-}			t_enemy;
-
-typedef struct s_data
-{
-	void		*mlx;
-	void		*win;
-	int			width_win;
-	int			height_win;
-	char		*path;
-	int			collectibles;
-	int			type_resize;
-	t_map		map;
-	t_tiles		tiles;
-	t_perso		perso;
-	t_enemy		enemy;
-}				t_data;
 
 //
 //get_map.c
@@ -192,5 +110,8 @@ void	enemy_moove(t_data *data);
 int		is_ok(t_data *data);
 int		ft_nl_strlen(char *str);
 void	resize_map(t_data *data, int x);
+
+void	player_data(t_data *data);
+void	map_data(t_data *data);
 
 #endif

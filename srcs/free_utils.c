@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:17:25 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 14:21:22 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:21:25 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	free_img1(t_data *data)
 {
-	if (data->tiles.door_c_ptr)
-		mlx_destroy_image(data->mlx, data->tiles.door_c_ptr);
-	if (data->tiles.door_o_ptr)
-		mlx_destroy_image(data->mlx, data->tiles.door_o_ptr);
+	if (data->tiles.door_ptr[1])
+		mlx_destroy_image(data->mlx, data->tiles.door_ptr[1]);
+	if (data->tiles.door_ptr[0])
+		mlx_destroy_image(data->mlx, data->tiles.door_ptr[0]);
 	if (data->tiles.ground_ptr)
 		mlx_destroy_image(data->mlx, data->tiles.ground_ptr);
 	if (data->tiles.wall_ptr)
