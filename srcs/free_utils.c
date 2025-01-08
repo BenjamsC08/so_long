@@ -18,7 +18,7 @@ static void	free_img1(t_data *data)
 		mlx_destroy_image(data->mlx, data->tiles.door_ptr[1]);
 	if (data->tiles.door_data[0])
 		mlx_destroy_image(data->mlx, data->tiles.door_ptr[0]);
-	if (data->tiles.ground_ptr)
+	if (data->tiles.ground_data)
 		mlx_destroy_image(data->mlx, data->tiles.ground_ptr);
 	if (data->tiles.wall_ptr)
 		mlx_destroy_image(data->mlx, data->tiles.wall_ptr);
@@ -32,13 +32,14 @@ void	free_img(t_data *data)
 		mlx_destroy_image(data->mlx, data->map.asset_ptr);
 	if (data->tiles.coll_ptr)
 		mlx_destroy_image(data->mlx, data->tiles.coll_ptr);
-	if (data->perso.left_ptr)
-	{
+	if (data->perso.left_data)
 		mlx_destroy_image(data->mlx, data->perso.left_ptr);
+	if (data->perso.right_data)
 		mlx_destroy_image(data->mlx, data->perso.right_ptr);
+	if (data->perso.up_data)
 		mlx_destroy_image(data->mlx, data->perso.up_ptr);
+	if (data->perso.down_data)
 		mlx_destroy_image(data->mlx, data->perso.down_ptr);
-	}
 	if (data->enemy.is_on == 1 && data->enemy.left_ptr)
 	{
 		mlx_destroy_image(data->mlx, data->enemy.left_ptr);

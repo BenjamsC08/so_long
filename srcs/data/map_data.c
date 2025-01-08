@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:17:29 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 11:23:42 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:54:05 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 static void	base_map_img(t_data *data)
 {
-	data->map.img_ptr = mlx_new_image(data->mlx, data->width_win,
-			data->height_win);
-	data->map.img_data = (int *)mlx_get_data_addr(data->map.img_ptr,
-			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->tiles.wall_ptr = mlx_xpm_file_to_image(data->mlx,
 			WALL_IMG, &data->tiles.size, &data->tiles.size);
 	data->tiles.wall_data = (int *)mlx_get_data_addr(data->tiles.wall_ptr,
@@ -59,6 +55,10 @@ static void	overlay_img(t_data *data)
 
 void	map_data(t_data *data)
 {
+	data->map.img_ptr = mlx_new_image(data->mlx, data->width_win,
+			data->height_win);
+	data->map.img_data = (int *)mlx_get_data_addr(data->map.img_ptr,
+			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	base_map_img(data);
 	object_map_img(data);
 	overlay_img(data);
