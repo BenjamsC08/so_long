@@ -18,13 +18,13 @@ static int	*get_player_img_data(t_data *data)
 
 	tiles_data = NULL;
 	if (data->perso.dir == 'R')
-		tiles_data = data->perso.right_data;
+		tiles_data = data->perso.right_data[0];
 	if (data->perso.dir == 'L')
-		tiles_data = data->perso.left_data;
+		tiles_data = data->perso.left_data[0];
 	if (data->perso.dir == 'U')
-		tiles_data = data->perso.up_data;
+		tiles_data = data->perso.up_data[0];
 	if (data->perso.dir == 'D')
-		tiles_data = data->perso.down_data;
+		tiles_data = data->perso.down_data[0];
 	return (tiles_data);
 }
 
