@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:15:57 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 16:17:30 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:51:52 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ typedef struct s_map
 typedef struct s_enemy
 {
 	int		is_on;
-	void	*down_ptr;
-	int		*down_data;
-	void	*up_ptr;
-	int		*up_data;
-	void	*right_ptr;
-	int		*right_data;
-	void	*left_ptr;
-	int		*left_data;
+	void	**down_ptr;
+	int		**down_data;
+	void	**up_ptr;
+	int		**up_data;
+	void	**right_ptr;
+	int		**right_data;
+	void	**left_ptr;
+	int		**left_data;
 	int		y;
 	int		x;
 	char	dir;

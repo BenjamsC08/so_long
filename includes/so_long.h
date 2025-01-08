@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:21:02 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 16:40:27 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:59:55 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ void	player_data(t_data *data);
 void	map_data(t_data *data);
 void	enemy_data(t_data *data);
 void	try_to_free_player(t_data *data);
+void	try_to_free_enemy(t_data *data);
 
 #endif
