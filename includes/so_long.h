@@ -16,11 +16,12 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include "libft.h"
+# include "path_textures.h"
 
 # define TILE_SIZE 32
 # define MAX_X_WIN 25	//25 time Tile_size
 # define MAX_Y_WIN 17	//17 time TILE_SIZE
-# define EXTRA_HEIGHT 0
+# define EXTRA_HEIGHT 2
 # define HEIGHT_OVL 64
 # define WIDTH_OVL 800
 /* e : 101 q:113 shift:65505 ctrl:65507	*/

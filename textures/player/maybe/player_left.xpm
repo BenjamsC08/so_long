@@ -2,7 +2,7 @@
 static char *_a69770d4fb14a0a9ac0bbbf326be081ge87Lj8ORAGObaii[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 20 1 ",
-"  c None",
+"  c #B86F50",
 ". c #0C0A07",
 "X c #291A18",
 "o c #362623",

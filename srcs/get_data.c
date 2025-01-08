@@ -48,21 +48,19 @@ static void	map_data(t_data *data)
 	data->map.img_data = (int *)mlx_get_data_addr(data->map.img_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->tiles.wall_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/map/wall.xpm", &data->tiles.size, &data->tiles.size);
+			WALL_IMG, &data->tiles.size, &data->tiles.size);
 	data->tiles.wall_data = (int *)mlx_get_data_addr(data->tiles.wall_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->tiles.ground_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/map/ground.xpm", &data->tiles.size, &data->tiles.size);
+			GROUND_IMG_1, &data->tiles.size, &data->tiles.size);
 	data->tiles.ground_data = (int *)mlx_get_data_addr(data->tiles.ground_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->tiles.door_o_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/map/door_open.xpm", &data->tiles.size,
-			&data->tiles.size);
+			DOOR_OPEN_IMG, &data->tiles.size, &data->tiles.size);
 	data->tiles.door_o_data = (int *)mlx_get_data_addr(data->tiles.door_o_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->tiles.door_c_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/map/door_close.xpm", &data->tiles.size,
-			&data->tiles.size);
+			DOOR_CLOSE_IMG, &data->tiles.size, &data->tiles.size);
 	data->tiles.door_c_data = (int *)mlx_get_data_addr(data->tiles.door_c_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }
@@ -70,23 +68,19 @@ static void	map_data(t_data *data)
 static void	player_data(t_data *data)
 {
 	data->perso.down_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/player/player_down.xpm", &data->tiles.size,
-			&data->tiles.size);
+			PLAYER_DOWN_1, &data->tiles.size, &data->tiles.size);
 	data->perso.down_data = (int *)mlx_get_data_addr(data->perso.down_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->perso.up_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/player/player_up.xpm", &data->tiles.size,
-			&data->tiles.size);
+			PLAYER_UP_1, &data->tiles.size, &data->tiles.size);
 	data->perso.up_data = (int *)mlx_get_data_addr(data->perso.up_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->perso.right_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/player/player_right.xpm", &data->tiles.size,
-			&data->tiles.size);
+			PLAYER_RIGHT_1, &data->tiles.size, &data->tiles.size);
 	data->perso.right_data = (int *)mlx_get_data_addr(data->perso.right_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->perso.left_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/player/player_left.xpm", &data->tiles.size,
-			&data->tiles.size);
+			PLAYER_LEFT_1, &data->tiles.size, &data->tiles.size);
 	data->perso.left_data = (int *)mlx_get_data_addr(data->perso.left_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->perso.dir = 'D';
@@ -102,12 +96,12 @@ static void	other_data(t_data *data)
 	x = WIDTH_OVL;
 	y = HEIGHT_OVL;
 	data->tiles.coll_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/collectible/bag.xpm", &data->tiles.size,
+			COLLECTIBLE_IMG, &data->tiles.size,
 			&data->tiles.size);
 	data->tiles.coll_data = (int *)mlx_get_data_addr(data->tiles.coll_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->map.asset_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/other/datav1.xpm", &x, &y);
+			"./textures/other/datav2.xpm", &x, &y);
 	data->map.asset_data = (int *)mlx_get_data_addr(data->map.asset_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }

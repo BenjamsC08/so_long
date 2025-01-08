@@ -1,5 +1,5 @@
 /* XPM */
-static char *door_open_soil1734924744[] = {
+static char *door_open[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 90 1 ",
 "  c #50270E",
