@@ -70,7 +70,7 @@ static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 	else if (data->map.win[pos[0]][pos[1]] == 'Z')
 		tiles_data = get_enemy_img_data(data, pos[0], pos[1]);
 	else
-		tiles_data = data->tiles.ground_data;
+		tiles_data = data->tiles.ground_data[2];
 	if (tiles_data != NULL)
 		data->map.img_data[big_pixel] = tiles_data[small_pixel];
 }

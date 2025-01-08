@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:15:57 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 15:54:33 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:58:21 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ typedef struct s_tiles
 	int		size;
 	void	*wall_ptr;
 	int		*wall_data;
-	void	*ground_ptr;
-	int		*ground_data;
+	void	**ground_ptr;
+	int		**ground_data;
 	void	*door_ptr[2];
 	int		*door_data[2];
 	void	*coll_ptr;
