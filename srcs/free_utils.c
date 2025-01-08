@@ -14,9 +14,9 @@
 
 static void	free_img1(t_data *data)
 {
-	if (data->tiles.door_ptr[1])
+	if (data->tiles.door_data[1])
 		mlx_destroy_image(data->mlx, data->tiles.door_ptr[1]);
-	if (data->tiles.door_ptr[0])
+	if (data->tiles.door_data[0])
 		mlx_destroy_image(data->mlx, data->tiles.door_ptr[0]);
 	if (data->tiles.ground_ptr)
 		mlx_destroy_image(data->mlx, data->tiles.ground_ptr);
@@ -28,7 +28,7 @@ static void	free_img1(t_data *data)
 
 void	free_img(t_data *data)
 {
-	if (data->map.asset_ptr)
+	if (data->map.asset_data)
 		mlx_destroy_image(data->mlx, data->map.asset_ptr);
 	if (data->tiles.coll_ptr)
 		mlx_destroy_image(data->mlx, data->tiles.coll_ptr);

@@ -13,7 +13,7 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g3
 NAME = so_long
-SRCS = srcs/check_map.c srcs/check_map_utils.c srcs/colors_utils.c srcs/draw.c srcs/enemy.c srcs/errors.c srcs/frees.c srcs/free_utils.c srcs/data/get_data.c srcs/get_map.c srcs/main.c srcs/map_management.c srcs/moove.c srcs/utils.c srcs/win_management.c srcs/data/player_data.c srcs/data/map_data.c
+SRCS = srcs/check_map.c srcs/check_map_utils.c srcs/colors_utils.c srcs/draw.c srcs/enemy.c srcs/errors.c srcs/frees.c srcs/free_utils.c srcs/data/get_data.c srcs/get_map.c srcs/main.c srcs/map_management.c srcs/moove.c srcs/utils.c srcs/win_management.c srcs/data/player_data.c srcs/data/map_data.c srcs/data/enemy_data.c
 OBJ = $(SRCS:.c=.o)
 LIB_PATH = -Lmlx_linux -Llibft -L/usr/lib
 LIB_NAME = -lmlx_Linux -lft -lXext -lX11 -lm -lz 

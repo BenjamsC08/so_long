@@ -12,17 +12,8 @@
 
 #include "so_long.h"
 
-static void	win_data(t_data *data)
+static void	bp_parse(t_data *data)
 {
-	data->tiles.size = TILE_SIZE;
-	data->map.y_max = count_lines(data->path);
-	data->enemy.is_on = 0;
-	data->map.bp = get_map(data, &data->map.x_max);
-	if (!data->map.bp)
-	{
-		classic_close(data);
-		return ;
-	}
 	if (data->map.y_max > MAX_Y_WIN)
 	{
 		if (data->map.x_max > MAX_X_WIN)
@@ -41,23 +32,21 @@ static void	win_data(t_data *data)
 	}
 }
 
-static void	other_data(t_data *data)
+static void	win_data(t_data *data)
 {
-	int	x;
-	int	y;
-
-	x = WIDTH_OVL;
-	y = HEIGHT_OVL;
-	data->tiles.coll_ptr = mlx_xpm_file_to_image(data->mlx,
-			COLLECTIBLE_IMG, &data->tiles.size,
-			&data->tiles.size);
-	data->tiles.coll_data = (int *)mlx_get_data_addr(data->tiles.coll_ptr,
-			&data->map.bpp, &data->map.line_len, &data->map.endian);
-	data->map.asset_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/other/datav2.xpm", &x, &y);
-	data->map.asset_data = (int *)mlx_get_data_addr(data->map.asset_ptr,
-			&data->map.bpp, &data->map.line_len, &data->map.endian);
+	data->tiles.size = TILE_SIZE;
+	data->map.y_max = count_lines(data->path);
+	data->enemy.is_on = 0;
+	data->map.bp = get_map(data, &data->map.x_max);
+	if (!data->map.bp)
+	{
+		classic_close(data);
+		return ;
+	}
+	bp_parse(data);
 }
+
+
 
 int	load_data(t_data *data)
 {
@@ -73,7 +62,6 @@ int	load_data(t_data *data)
 		return (0);
 	map_data(data);
 	player_data(data);
-	other_data(data);
 	if (data->enemy.is_on == 1)
 		enemy_data(data);
 	return (1);

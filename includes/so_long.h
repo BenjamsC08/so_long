@@ -113,5 +113,6 @@ void	resize_map(t_data *data, int x);
 
 void	player_data(t_data *data);
 void	map_data(t_data *data);
+void	enemy_data(t_data *data);
 
 #endif

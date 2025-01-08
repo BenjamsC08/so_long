@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static void	tiles_img(t_data *data)
+static void	base_map_img(t_data *data)
 {
 	data->map.img_ptr = mlx_new_image(data->mlx, data->width_win,
 			data->height_win);
@@ -26,6 +26,14 @@ static void	tiles_img(t_data *data)
 			GROUND_IMG_1, &data->tiles.size, &data->tiles.size);
 	data->tiles.ground_data = (int *)mlx_get_data_addr(data->tiles.ground_ptr,
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
+}
+
+static void object_map_img(t_data *data)
+{
+	data->tiles.coll_ptr = mlx_xpm_file_to_image(data->mlx,
+			COLLECTIBLE_IMG, &data->tiles.size, &data->tiles.size);
+	data->tiles.coll_data = (int *)mlx_get_data_addr(data->tiles.coll_ptr,
+			&data->map.bpp, &data->map.line_len, &data->map.endian);
 	data->tiles.door_ptr[0] = mlx_xpm_file_to_image(data->mlx,
 			DOOR_CLOSE_IMG, &data->tiles.size, &data->tiles.size);
 	data->tiles.door_data[0] = (int *)mlx_get_data_addr(data->tiles.door_ptr[0],
@@ -34,10 +42,24 @@ static void	tiles_img(t_data *data)
 			DOOR_OPEN_IMG, &data->tiles.size, &data->tiles.size);
 	data->tiles.door_data[1] = (int *)mlx_get_data_addr(data->tiles.door_ptr[1],
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
+}
 
+static void	overlay_img(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = WIDTH_OVL;
+	y = HEIGHT_OVL;
+	data->map.asset_ptr = mlx_xpm_file_to_image(data->mlx,
+			"./textures/other/datav2.xpm", &x, &y);
+	data->map.asset_data = (int *)mlx_get_data_addr(data->map.asset_ptr,
+			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }
 
 void	map_data(t_data *data)
 {
-	tiles_img(data);
+	base_map_img(data);
+	object_map_img(data);
+	overlay_img(data);
 }
