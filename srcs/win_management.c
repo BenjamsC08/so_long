@@ -29,11 +29,23 @@ int	ending(t_data *data, char to, int *pos)
 	return (1);
 }
 
-static int	key_hook(int keycode, t_data *data)
+static void	draw_all(t_data *data)
 {
 	int		big_p;
 	int		small_p;
 
+	big_p = 0;
+	small_p = 0;
+	draw_map(data, &big_p, &small_p);
+	mlx_put_image_to_window(data->mlx, data->win, data->map.img_ptr,
+		0, 0);
+	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr,
+		0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
+	draw_strs(data);
+}
+
+static int	key_hook(int keycode, t_data *data)
+{
 	if (keycode == ESC)
 		close_all(data);
 	if (keycode == W_KEY || keycode == A_KEY
@@ -44,58 +56,41 @@ static int	key_hook(int keycode, t_data *data)
 		moove(data, keycode);
 	if (data->enemy.is_on == 1)
 		enemy_moove(data);
-	draw_map(data, &big_p, &small_p);
-	mlx_put_image_to_window(data->mlx, data->win, data->map.img_ptr,
-		0, 0);
-	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr,
-		0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
-	draw_strs(data);
+	draw_all(data);
 	ft_printf("%d\n", data->perso.moove_count);
 	return (0);
 }
 
-/*int	loop_hook(t_data *data)*/
-/*{*/
-/*	static int frame = 0;*/
-/*	int		big_p;*/
-/*	int		small_p;*/
-/**/
-/*	ft_printf("frame %d \n", frame);*/
-/*    if (frame % 100000 == 0)*/
-/*    {*/
-/*        data->perso.dir = 'U';*/
-/*        draw_map(data, &big_p, &small_p);*/
-/*		mlx_put_image_to_window(data->mlx, data->win, data->map.img_ptr,*/
-/*			0, 0);*/
-/*		mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr,*/
-/*			0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));*/
-/*		draw_strs(data);*/
-/*		frame = 0;*/
-/*    }*/
-/*    frame++;*/
-/*	return (0);*/
-/*}*/
+static int	idling_hook(t_data *data)
+{
+	static int	frame_counter = 0;
+
+	frame_counter++;
+	/*ft_printf("fc%d\n", frame_counter);*/
+	if (frame_counter % 10000 == 0)
+	{
+		if (data->enemy.idling == 0)
+			data->enemy.idling = 1;
+		else
+			data->enemy.idling = 0;
+		frame_counter = 0;
+		draw_all(data);
+	}
+	return (1);
+}
 
 int	create_window(char *path_map)
 {
 	t_data		data;
-	int			big_p;
-	int			small_p;
 
-	big_p = 0;
-	small_p = 0;
 	data.path = ft_strdup(path_map);
 	if (!load_data(&data))
 		return (0);
-	draw_map(&data, &big_p, &small_p);
-	mlx_put_image_to_window(data.mlx, data.win, data.map.img_ptr, 0, 0);
-	mlx_put_image_to_window(data.mlx, data.win, data.map.asset_ptr,
-		0, ((data.height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
-	data.perso.moove_count = 0;
-	draw_strs(&data);
+	draw_all(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_hook, &data);
+	/*mlx_hook(data.win, 3, 1L << 1, idling_hook, &data);*/
 	mlx_hook(data.win, 17, 1L << 0, close_all, &data);
-	/*mlx_loop_hook(data.mlx, loop_hook, &data); */
+	mlx_loop_hook(data.mlx, idling_hook, &data); 
 	mlx_loop(data.mlx);
 	return (0);
 }

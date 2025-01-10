@@ -67,6 +67,7 @@ void	enemy_data(t_data *data)
 {
 	data->enemy.ptr = NULL;
 	data->enemy.data = NULL;
+	data->enemy.idling = 0;
 	enemy_malloc(data);
 	enemy_img_y(data);
 	enemy_img_x(data);

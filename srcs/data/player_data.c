@@ -94,6 +94,7 @@ void	player_data(t_data *data)
 	player_malloc(data);
 	player_img_y(data);
 	player_img_x(data);
+	data->perso.moove_count = 0;
 	data->perso.dir = 'D';
 	data->perso.step = 0;
 	data->perso.nb_collectible = 0;
