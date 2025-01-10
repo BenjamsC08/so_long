@@ -34,13 +34,13 @@ static int	*get_enemy_img_data(t_data *data, int y, int x)
 
 	tiles_data = NULL;
 	if (data->enemy.dir == 'R')
-		tiles_data = data->enemy.right_data[0];
+		tiles_data = data->enemy.data[4];
 	if (data->enemy.dir == 'L')
-		tiles_data = data->enemy.left_data[0];
+		tiles_data = data->enemy.data[6];
 	if (data->enemy.dir == 'U')
-		tiles_data = data->enemy.up_data[0];
+		tiles_data = data->enemy.data[2];
 	if (data->enemy.dir == 'D')
-		tiles_data = data->enemy.down_data[0];
+		tiles_data = data->enemy.data[0];
 	data->enemy.y = y;
 	data->enemy.x = x;
 	return (tiles_data);

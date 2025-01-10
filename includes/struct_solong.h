@@ -63,14 +63,8 @@ typedef struct s_map
 typedef struct s_enemy
 {
 	int		is_on;
-	void	**down_ptr;
-	int		**down_data;
-	void	**up_ptr;
-	int		**up_data;
-	void	**right_ptr;
-	int		**right_data;
-	void	**left_ptr;
-	int		**left_data;
+	void	**ptr;
+	int		**data;
 	int		y;
 	int		x;
 	char	dir;

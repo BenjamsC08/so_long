@@ -59,22 +59,22 @@ static void	free_img_perso(t_data *data)
 
 static void	free_img_enemy(t_data *data)
 {
-	if (data->enemy.left_ptr[1])
-		mlx_destroy_image(data->mlx, data->enemy.left_ptr[1]);
-	if (data->enemy.left_ptr[0])
-		mlx_destroy_image(data->mlx, data->enemy.left_ptr[0]);
-	if (data->enemy.right_ptr[1])
-		mlx_destroy_image(data->mlx, data->enemy.right_ptr[1]);
-	if (data->enemy.right_ptr[0])
-		mlx_destroy_image(data->mlx, data->enemy.right_ptr[0]);
-	if (data->enemy.up_data[1])
-		mlx_destroy_image(data->mlx, data->enemy.up_ptr[1]);
-	if (data->enemy.up_data[0])
-		mlx_destroy_image(data->mlx, data->enemy.up_ptr[0]);
-	if (data->enemy.down_data[1])
-		mlx_destroy_image(data->mlx, data->enemy.down_ptr[1]);
-	if (data->enemy.down_data[0])
-		mlx_destroy_image(data->mlx, data->enemy.down_ptr[0]);
+	if (data->enemy.ptr[7])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[7]);
+	if (data->enemy.ptr[6])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[6]);
+	if (data->enemy.ptr[5])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[5]);
+	if (data->enemy.ptr[4])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[4]);
+	if (data->enemy.data[3])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[3]);
+	if (data->enemy.data[2])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[2]);
+	if (data->enemy.data[1])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[1]);
+	if (data->enemy.data[0])
+		mlx_destroy_image(data->mlx, data->enemy.ptr[0]);
 	try_to_free_enemy(data);
 }
 
@@ -86,6 +86,6 @@ void  free_img(t_data *data)
 		mlx_destroy_image(data->mlx, data->tiles.coll_ptr);
 	free_map_img(data);
 	free_img_perso(data);
-	if (data->enemy.is_on == 1 && data->enemy.left_ptr)
+	if (data->enemy.is_on == 1 && data->enemy.ptr)
 		free_img_enemy(data);
 }
