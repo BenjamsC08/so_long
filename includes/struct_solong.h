@@ -69,6 +69,7 @@ typedef struct s_enemy
 	int		x;
 	char	dir;
 	int		step;
+	int		idling;
 }			t_enemy;
 
 typedef struct s_data
