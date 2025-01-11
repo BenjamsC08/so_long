@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:17:29 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 16:13:19 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:25:49 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,32 @@ static void object_map_img(t_data *data)
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }
 
-static void	overlay_img(t_data *data)
+static int	overlay_img(t_data *data)
 {
 	int	x;
 	int	y;
 
 	x = WIDTH_OVL;
 	y = HEIGHT_OVL;
-	data->map.asset_ptr = mlx_xpm_file_to_image(data->mlx,
-			"./textures/other/datav2.xpm", &x, &y);
-	data->map.asset_data = (int *)mlx_get_data_addr(data->map.asset_ptr,
+	data->map.asset_ptr = (void **)malloc(sizeof(void *) * 3);
+	if (!data->map.asset_ptr)
+		return (0);
+	data->map.asset_data = (int **)malloc(sizeof(int *) * 3);
+	if (!data->map.asset_data)
+		return (try_to_free_overlay(data), 0);
+	data->map.asset_ptr[0] = mlx_xpm_file_to_image(data->mlx,
+			OVERLAY_BACKGROUND, &y, &x);
+	data->map.asset_data[0] = (int *)mlx_get_data_addr(data->map.asset_ptr[0],
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
+	data->map.asset_ptr[1] = mlx_xpm_file_to_image(data->mlx,
+			OVERLAY_STEP_BANNER, &y, &x);
+	data->map.asset_data[1] = (int *)mlx_get_data_addr(data->map.asset_ptr[1],
+			&data->map.bpp, &data->map.line_len, &data->map.endian);
+	data->map.asset_ptr[2] = mlx_xpm_file_to_image(data->mlx,
+			OVERLAY_COLL_BANNER, &y, &x);
+	data->map.asset_data[2] = (int *)mlx_get_data_addr(data->map.asset_ptr[2],
+			&data->map.bpp, &data->map.line_len, &data->map.endian);
+	return (1);
 }
 
 void	map_data(t_data *data)

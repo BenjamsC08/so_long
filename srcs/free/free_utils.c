@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:17:25 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 11:21:25 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:01:29 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,12 @@ void	try_to_free_enemy(t_data *data)
 		free(data->enemy.ptr);
 	if (data->enemy.data)
 		free(data->enemy.data);
+}
+
+void	try_to_free_overlay(t_data *data)
+{
+	if (data->map.asset_ptr)
+		free(data->map.asset_ptr);
+	if (data->map.asset_data)
+		free(data->map.asset_data);
 }

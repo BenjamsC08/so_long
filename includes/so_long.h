@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:21:02 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/11 22:14:10 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:22:07 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,7 @@ void	try_to_free_enemy(t_data *data);
 int		*get_player_img_data(t_data *data);
 int		*get_enemy_img_data(t_data *data, int y, int x);
 int		*get_map_img_data(t_data *data, int *pos);
+void	try_to_free_overlay(t_data *data);
+void	draw_overlay(t_data *data);
 
 #endif

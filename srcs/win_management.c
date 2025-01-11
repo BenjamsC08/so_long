@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:45:51 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 13:53:49 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:19:37 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ static void	draw_all(t_data *data)
 	draw_map(data, &big_p, &small_p);
 	mlx_put_image_to_window(data->mlx, data->win, data->map.img_ptr,
 		0, 0);
-	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr,
-		0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
+	draw_overlay(data);
 	draw_strs(data);
 }
 

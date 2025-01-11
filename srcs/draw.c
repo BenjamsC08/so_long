@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:56:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/11 22:11:01 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:40:32 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ void	draw_strs(t_data *data)
 {
 	char		*str;
 	int			colors_coll;
-	const int	px_extra = (EXTRA_HEIGHT * TILE_SIZE);
 
 	if (data->perso.moove_count == 0)
 		str = "0";
 	else
 		str = ft_itoa(data->perso.moove_count);
-	mlx_string_put(data->mlx, data->win, 15, (data->height_win - px_extra + 25),
+	mlx_string_put(data->mlx, data->win, (data->width_win / 10) + 40,
+		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 34),
 		encode_trgb(255, 0, 0, 0), str);
 	if (str && data->perso.moove_count != 0)
 		free(str);
@@ -90,11 +90,23 @@ void	draw_strs(t_data *data)
 		str = ft_itoa(data->perso.nb_collectible);
 	colors_coll = encode_trgb(255, 255, 0, 0);
 	if (is_ok(data))
-		colors_coll = encode_trgb(255, 58, 200, 11);
-	mlx_string_put(data->mlx, data->win, 10 + 60,
-		(data->height_win - px_extra + 25),
+		colors_coll = encode_trgb(255, 38, 119, 1);
+	mlx_string_put(data->mlx, data->win,
+		(data->width_win / 2 + data->width_win / 14) + 10,
+		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 34),
 		colors_coll, str);
 	if (data->perso.nb_collectible != 0 && str)
 		free(str);
 	str = NULL;
+}
+
+void	draw_overlay(t_data *data)
+{
+	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[0],
+		0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
+	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[1],
+		data->width_win / 10, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 16));
+	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[2],
+		data->width_win / 2 + data->width_win / 14,
+		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 16));
 }

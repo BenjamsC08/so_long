@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:15:56 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 18:19:04 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:17:22 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,12 @@ static void	free_img_enemy(t_data *data)
 
 void  free_img(t_data *data)
 {
-	if (data->map.asset_data)
-		mlx_destroy_image(data->mlx, data->map.asset_ptr);
+	if (data->map.asset_data[2])
+		mlx_destroy_image(data->mlx, data->map.asset_ptr[2]);
+	if (data->map.asset_data[1])
+		mlx_destroy_image(data->mlx, data->map.asset_ptr[1]);
+	if (data->map.asset_data[0])
+		mlx_destroy_image(data->mlx, data->map.asset_ptr[0]);
 	if (data->tiles.coll_ptr)
 		mlx_destroy_image(data->mlx, data->tiles.coll_ptr);
 	free_map_img(data);

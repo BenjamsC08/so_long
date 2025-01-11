@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:15:57 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 17:51:52 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 22:50:01 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct s_map
 	int		resize;
 	void	*img_ptr;
 	int		*img_data;
-	void	*asset_ptr;
-	int		*asset_data;
+	void	**asset_ptr;
+	int		**asset_data;
 	int		bpp;
 	int		endian;
 	int		line_len;
