@@ -67,7 +67,7 @@ static int	idling_hook(t_data *data)
 
 	frame_counter++;
 	/*ft_printf("fc%d\n", frame_counter);*/
-	if (frame_counter % 10000 == 0)
+	if (frame_counter % 100000 == 0)
 	{
 		if (data->enemy.idling == 0)
 			data->enemy.idling = 1;

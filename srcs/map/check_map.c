@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:18:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 14:17:34 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 22:30:45 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ static int	check_nb_char(t_data *data, char **strs, int nb_lines, int line_len)
 				tab[3]++;
 		}
 	}
-	if (tab[0] < 1 || tab[1] != 1 || tab[2] != 1)
+	if (tab[0] < 1 || tab[1] != 1 || tab[2] != 1 || tab[3] > 1)
 		return (-5);
-	if (tab[3] != 0)
+	if (tab[3] == 1)
 		data->enemy.is_on = 1;
 	return (tab[0]);
 }

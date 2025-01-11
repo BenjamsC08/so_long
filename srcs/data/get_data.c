@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:13:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 11:18:12 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 22:29:19 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int	load_data(t_data *data)
 	player_data(data);
 	if (data->enemy.is_on == 1)
 		enemy_data(data);
+	data->enemy.idling = 0;
 	return (1);
 }

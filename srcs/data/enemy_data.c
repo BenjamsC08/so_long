@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:14:48 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 18:00:05 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 22:24:10 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	enemy_data(t_data *data)
 {
 	data->enemy.ptr = NULL;
 	data->enemy.data = NULL;
-	data->enemy.idling = 0;
 	enemy_malloc(data);
 	enemy_img_y(data);
 	enemy_img_x(data);

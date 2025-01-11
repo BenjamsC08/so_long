@@ -6,49 +6,11 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:56:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/08 11:22:47 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/11 22:11:01 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static int	*get_player_img_data(t_data *data)
-{
-	int	*tiles_data;
-	int	k;
-
-	k = data->enemy.idling;
-	tiles_data = NULL;
-	if (data->perso.dir == 'R')
-		tiles_data = data->perso.right_data[k];
-	if (data->perso.dir == 'L')
-		tiles_data = data->perso.left_data[k];
-	if (data->perso.dir == 'U')
-		tiles_data = data->perso.up_data[k];
-	if (data->perso.dir == 'D')
-		tiles_data = data->perso.down_data[k];
-	return (tiles_data);
-}
-
-static int	*get_enemy_img_data(t_data *data, int y, int x)
-{
-	int	*tiles_data;
-	int	k;
-
-	k = data->enemy.idling;
-	tiles_data = NULL;
-	if (data->enemy.dir == 'R')
-		tiles_data = data->enemy.data[4 + k];
-	if (data->enemy.dir == 'L')
-		tiles_data = data->enemy.data[6 + k];
-	if (data->enemy.dir == 'U')
-		tiles_data = data->enemy.data[2 + k];
-	if (data->enemy.dir == 'D')
-		tiles_data = data->enemy.data[0 + k];
-	data->enemy.y = y;
-	data->enemy.x = x;
-	return (tiles_data);
-}
 
 static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 {
@@ -74,7 +36,7 @@ static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 	else if (data->map.win[pos[0]][pos[1]] == 'Z')
 		tiles_data = get_enemy_img_data(data, pos[0], pos[1]);
 	else
-		tiles_data = data->tiles.ground_data[2];
+		tiles_data = get_map_img_data(data, pos);
 	if (tiles_data != NULL)
 		data->map.img_data[big_pixel] = tiles_data[small_pixel];
 }
