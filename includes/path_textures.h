@@ -43,7 +43,7 @@
 # define DOOR_OPEN_IMG "./textures/map/door_open.xpm"
 # define DOOR_CLOSE_IMG "./textures/map/door_close.xpm"
 
-# define OVERLAY_BACKGROUND "./textures/other/datav2.xpm"
+# define OVERLAY_BACKGROUND "./textures/other/datav1.xpm"
 # define OVERLAY_COLL_BANNER "./textures/other/collBanner.xpm"
 # define OVERLAY_STEP_BANNER "./textures/other/stepBanner.xpm"
 
