@@ -38,10 +38,10 @@ static void	free_map_img(t_data *data)
 
 static void	free_img_perso(t_data *data)
 {
-	if (data->perso.left_ptr[1])
-		mlx_destroy_image(data->mlx, data->perso.left_ptr[1]);
 	if (data->perso.left_ptr[0])
 		mlx_destroy_image(data->mlx, data->perso.left_ptr[0]);
+	if (data->perso.left_ptr[1])
+		mlx_destroy_image(data->mlx, data->perso.left_ptr[1]);
 	if (data->perso.right_ptr[1])
 		mlx_destroy_image(data->mlx, data->perso.right_ptr[1]);
 	if (data->perso.right_ptr[0])
@@ -78,18 +78,23 @@ static void	free_img_enemy(t_data *data)
 	try_to_free_enemy(data);
 }
 
-void  free_img(t_data *data)
+void	free_img(t_data *data)
 {
-	if (data->map.asset_data[2])
-		mlx_destroy_image(data->mlx, data->map.asset_ptr[2]);
-	if (data->map.asset_data[1])
-		mlx_destroy_image(data->mlx, data->map.asset_ptr[1]);
-	if (data->map.asset_data[0])
-		mlx_destroy_image(data->mlx, data->map.asset_ptr[0]);
-	if (data->tiles.coll_ptr)
-		mlx_destroy_image(data->mlx, data->tiles.coll_ptr);
+	if (data->map.asset_data)
+	{
+		if (data->map.asset_data[2])
+			mlx_destroy_image(data->mlx, data->map.asset_ptr[2]);
+		if (data->map.asset_data[1])
+			mlx_destroy_image(data->mlx, data->map.asset_ptr[1]);
+		if (data->map.asset_data[0])
+			mlx_destroy_image(data->mlx, data->map.asset_ptr[0]);
+		if (data->tiles.coll_ptr)
+			mlx_destroy_image(data->mlx, data->tiles.coll_ptr);
+	}
+	try_to_free_overlay(data);
 	free_map_img(data);
-	free_img_perso(data);
+	if (data->perso.y)
+		free_img_perso(data);
 	if (data->enemy.is_on == 1 && data->enemy.ptr)
 		free_img_enemy(data);
 }

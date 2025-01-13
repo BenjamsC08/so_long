@@ -15,21 +15,21 @@
 void	err_management_map(int err_code, char *path_map)
 {
 	if (err_code == -1)
-		ft_printf("The map is not rectangular\ncheck : %s\n", path_map);
+		ft_printf("Error\nThe map is not rectangular check : %s\n", path_map);
 	if (err_code == -2 || err_code == -3)
-		ft_printf("The map is not closed\ncheck : %s\n", path_map);
+		ft_printf("Error\nThe map is not closed\ncheck : %s\n", path_map);
 	if (err_code == -4)
-		ft_printf("The map have not allowed char,\n\
+		ft_printf("Error\nThe map have not allowed char,\n\
 allowed char : 01PECZ\ncheck : %s\n", path_map);
 	if (err_code == -5)
-		ft_printf("The map need only one P and E, \
+		ft_printf("Error\nThe map need only one P and E, \
 and need at least one C (you can also add a Z)\ncheck : %s\n", path_map);
 	if (err_code == -6)
-		ft_printf("The map file need to have .ber extension\ncheck : %s\n",
+		ft_printf("Error\nThe map file need to have .ber extension\ncheck : %s\n",
 			path_map);
 	if (err_code == -7)
-		ft_printf("The map is not doable\ncheck : %s\n", path_map);
+		ft_printf("Error\nThe map is not doable\ncheck : %s\n", path_map);
 	if (err_code == -8)
-		ft_printf("Dup map failed\ncheck : %s\n", path_map);
+		ft_printf("Error\nDup map failed\ncheck : %s\n", path_map);
 	return ;
 }

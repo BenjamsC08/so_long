@@ -65,12 +65,14 @@ static void	player_img_x(t_data *data)
 {
 	data->perso.right_ptr[0] = mlx_xpm_file_to_image(data->mlx,
 			PLAYER_RIGHT_1, &data->tiles.size, &data->tiles.size);
-	data->perso.right_data[0] = (int *)mlx_get_data_addr(data->perso.right_ptr[0],
-			&data->map.bpp, &data->map.line_len, &data->map.endian);
+	data->perso.right_data[0] = (int *)mlx_get_data_addr(
+			data->perso.right_ptr[0], &data->map.bpp, &data->map.line_len,
+			&data->map.endian);
 	data->perso.right_ptr[1] = mlx_xpm_file_to_image(data->mlx,
 			PLAYER_RIGHT_2, &data->tiles.size, &data->tiles.size);
-	data->perso.right_data[1] = (int *)mlx_get_data_addr(data->perso.right_ptr[1],
-			&data->map.bpp, &data->map.line_len, &data->map.endian);
+	data->perso.right_data[1] = (int *)mlx_get_data_addr(
+			data->perso.right_ptr[1], &data->map.bpp, &data->map.line_len,
+			&data->map.endian);
 	data->perso.left_ptr[0] = mlx_xpm_file_to_image(data->mlx,
 			PLAYER_LEFT_1, &data->tiles.size, &data->tiles.size);
 	data->perso.left_data[0] = (int *)mlx_get_data_addr(data->perso.left_ptr[0],

@@ -46,8 +46,6 @@ static void	win_data(t_data *data)
 	bp_parse(data);
 }
 
-
-
 int	load_data(t_data *data)
 {
 	win_data(data);
