@@ -104,10 +104,3 @@ void	moove(t_data *data, int keycode)
 	}
 	pre_swap(data);
 }
-/**/
-/*if (to == '1')*/
-/*	data->perso.moove_count--;*/
-/*if (to == 'Z')*/
-/*	good_ending(data);*/
-/*if (to == 'E')*/
-/*	ft_printf("la");*/

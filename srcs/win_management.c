@@ -65,7 +65,6 @@ static int	idling_hook(t_data *data)
 	static int	frame_counter = 0;
 
 	frame_counter++;
-	/*ft_printf("fc%d\n", frame_counter);*/
 	if (frame_counter % 100000 == 0)
 	{
 		if (data->enemy.idling == 0)
@@ -87,10 +86,8 @@ int	create_window(char *path_map)
 		return (0);
 	draw_all(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_hook, &data);
-	/*mlx_hook(data.win, 3, 1L << 1, idling_hook, &data);*/
 	mlx_hook(data.win, 17, 1L << 0, close_all, &data);
 	mlx_loop_hook(data.mlx, idling_hook, &data); 
 	mlx_loop(data.mlx);
 	return (0);
 }
-//int		mlx_loop_hook(void *mlx_ptr, int (*f)(), void *param);

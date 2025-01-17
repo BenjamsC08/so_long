@@ -140,13 +140,3 @@ int	check_map(char **strs, t_data *data, int len_line)
 		return (err_management_map(err_handler, data->path), 0);
 	return (nb_collectible);
 }
-/*
-//check_map_format
-////check '1' in border
-////check if each line == strlen(line0)
-//check_nb_char
-////check if C>=1 if P == 1 if E == 1
-////return nb_C
-//check_extension_path
-////check if the path finised by .ber
-*/

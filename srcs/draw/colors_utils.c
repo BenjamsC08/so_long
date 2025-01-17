@@ -6,34 +6,33 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 07:43:45 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/23 00:49:37 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 04:19:03 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	encode_trgb(unsigned char t, unsigned char r,
-				unsigned char g, unsigned char b)
+int	encode_trgb(t_byte t, t_byte r, t_byte g, t_byte b)
 {
-	return (*(int *)(unsigned char [4]){b, g, r, t});
+	return (*(int *)(t_byte[4]){b, g, r, t});
 }
 
-unsigned char	get_t(int trgb)
+t_byte	get_t(int trgb)
 {
-	return (((unsigned char *)&trgb)[3]);
+	return (((t_byte *)&trgb)[3]);
 }
 
-unsigned char	get_r(int trgb)
+t_byte	get_r(int trgb)
 {
-	return (((unsigned char *)&trgb)[2]);
+	return (((t_byte *)&trgb)[2]);
 }
 
-unsigned char	get_g(int trgb)
+t_byte	get_g(int trgb)
 {
-	return (((unsigned char *)&trgb)[1]);
+	return (((t_byte *)&trgb)[1]);
 }
 
-unsigned char	get_b(int trgb)
+t_byte	get_b(int trgb)
 {
-	return (((unsigned char *)&trgb)[0]);
+	return (((t_byte *)&trgb)[0]);
 }

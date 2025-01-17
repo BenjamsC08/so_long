@@ -92,12 +92,3 @@ void	enemy_moove(t_data *data)
 	}
 	pre_swap(data, (int *)p_pos, z_pos);
 }
-	/**/
-	/*if (data->enemy.dir == 'D')*/
-	/*	data->enemy.dir = 'R';*/
-	/*else if (data->enemy.dir == 'R')*/
-	/*	data->enemy.dir = 'U';*/
-	/*else if (data->enemy.dir == 'U')*/
-	/*	data->enemy.dir = 'L';*/
-	/*else if (data->enemy.dir == 'L')*/
-	/*	data->enemy.dir = 'D';*/

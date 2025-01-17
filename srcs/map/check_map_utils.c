@@ -98,15 +98,3 @@ int	*get_pos(char **strs, char to_find)
 	}
 	return (NULL);
 }
-
-/*
- *	not_allowed_char (check if the line have only allowed char)
- *	  get te char and the pos of the char if 
- *
- *	only_one (check if le line have only char '1')
- *
- *	dup_map
- *
- *	get_player_pos
- *
- */
