@@ -6,12 +6,23 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:55:38 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 07:18:50 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:58:43 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-// can add a to_swap in the function to swap P or Z when i call it
+
+static char	swap_ground(char to)
+{
+	char		other;
+	static char	temp = '0';
+
+	other = temp;
+	temp = to;
+	to = other;
+	return (to);
+}
+
 static void	swap_case(t_data *data, char axis, char to)
 {
 	const int	step = (const int)data->perso.step;
@@ -25,12 +36,12 @@ static void	swap_case(t_data *data, char axis, char to)
 	}
 	if (axis == 'X')
 	{
-		data->map.bp[pos[0]][pos[1]] = to;
+		data->map.bp[pos[0]][pos[1]] = swap_ground(to);
 		data->map.bp[pos[0]][pos[1] + step] = 'P';
 	}
 	if (axis == 'Y')
 	{
-		data->map.bp[pos[0]][pos[1]] = to;
+		data->map.bp[pos[0]][pos[1]] = swap_ground(to);
 		data->map.bp[pos[0] + step][pos[1]] = 'P';
 	}
 	if (data->map.win != data->map.bp)
@@ -43,7 +54,7 @@ static void	swap_case(t_data *data, char axis, char to)
 
 static void	pre_swap(t_data *data)
 {
-	const char	**map = (const char**)data->map.bp;
+	const char	**map = (const char **)data->map.bp;
 	int			*pos;
 	const int	step = (const int)data->perso.step;
 	char		next_one;
@@ -93,10 +104,10 @@ void	moove(t_data *data, int keycode)
 	}
 	pre_swap(data);
 }
-	/**/
-	/*if (to == '1')*/
-	/*	data->perso.moove_count--;*/
-	/*if (to == 'Z')*/
-	/*	good_ending(data);*/
-	/*if (to == 'E')*/
-	/*	ft_printf("la");*/
+/**/
+/*if (to == '1')*/
+/*	data->perso.moove_count--;*/
+/*if (to == 'Z')*/
+/*	good_ending(data);*/
+/*if (to == 'E')*/
+/*	ft_printf("la");*/

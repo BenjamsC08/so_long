@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 21:28:58 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/17 03:36:45 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 04:01:13 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,10 @@ char	**map_diversity(t_data *data, char **strs)
 					strs[y][x] = '3';
 				else if ((x + y) % 3 == 0 && y % 3 == 0)
 					strs[y][x] = '4';
-				else if ((x + y) % 10 == 0)
+				else if ((x + y) % 10 == 0 && (y % 5 == 0 || y % 11))
 					strs[y][x] = '2';
 			}
 		}
 	}
 	return (strs);
 }
-
-// le but est de recuperer Y et X du player et regarder la distance
-// qu'il est du top/down et de left/right avec map x_max et map.y_max
-// un fois que l'on a ont essaye de mettre le player le plus au centre possible
-//
-// sachant que win fait 17 x 25
-//
