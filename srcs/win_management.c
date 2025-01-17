@@ -87,7 +87,7 @@ int	create_window(char *path_map)
 	draw_all(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_hook, &data);
 	mlx_hook(data.win, 17, 1L << 0, close_all, &data);
-	mlx_loop_hook(data.mlx, idling_hook, &data); 
+	mlx_loop_hook(data.mlx, idling_hook, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
