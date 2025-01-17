@@ -12,6 +12,17 @@
 
 #include "so_long.h"
 
+static char	swap_ground(char to)
+{
+	char		other;
+	static char	temp = '0';
+
+	other = temp;
+	temp = to;
+	to = other;
+	return (to);
+}
+
 static void	swap_case(t_data *data, char axis, char to)
 {
 	const int	step = (const int)data->enemy.step;
@@ -23,12 +34,12 @@ static void	swap_case(t_data *data, char axis, char to)
 		pos = get_pos(data->map.bp, 'Z');
 		if (axis == 'X')
 		{
-			data->map.bp[pos[0]][pos[1]] = to;
+			data->map.bp[pos[0]][pos[1]] = swap_ground(to);
 			data->map.bp[pos[0]][pos[1] + step] = 'Z';
 		}
 		if (axis == 'Y')
 		{
-			data->map.bp[pos[0]][pos[1]] = to;
+			data->map.bp[pos[0]][pos[1]] = swap_ground(to);
 			data->map.bp[pos[0] + step][pos[1]] = 'Z';
 		}
 		free(pos);
