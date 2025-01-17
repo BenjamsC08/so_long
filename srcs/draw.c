@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:56:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/11 23:40:32 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:12:39 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static void	put_c_pixel(t_data *data, int big_pixel, int small_pixel, int *pos)
 	else if (data->map.win[pos[0]][pos[1]] == 'C')
 		tiles_data = data->tiles.coll_data;
 	else if (data->map.win[pos[0]][pos[1]] == 'E'
-			&& data->perso.nb_collectible == data->collectibles)
+		&& data->perso.nb_collectible == data->collectibles)
 		tiles_data = data->tiles.door_data[1];
 	else if (data->map.win[pos[0]][pos[1]] == 'E'
-			&& data->perso.nb_collectible != data->collectibles)
+		&& data->perso.nb_collectible != data->collectibles)
 		tiles_data = data->tiles.door_data[0];
 	else if (data->map.win[pos[0]][pos[1]] == 'Z')
 		tiles_data = get_enemy_img_data(data, pos[0], pos[1]);
 	else
-		tiles_data = get_map_img_data(data, pos);
+		tiles_data = get_map_img_data(data, data->map.win[pos[0]][pos[1]]);
 	if (tiles_data != NULL)
 		data->map.img_data[big_pixel] = tiles_data[small_pixel];
 }
@@ -60,8 +60,7 @@ void	draw_map(t_data *data, int *big_pixel, int *small_pixel)
 				while (++i < data->tiles.size)
 				{
 					*big_pixel = (pos[0] * data->tiles.size + j)
-						* (data->width_win)
-						+ (pos[1] * data->tiles.size + i);
+						* (data->width_win) + (pos[1] * data->tiles.size + i);
 					*small_pixel = j * data->tiles.size + i;
 					put_c_pixel(data, *big_pixel, *small_pixel, pos);
 				}
@@ -72,16 +71,16 @@ void	draw_map(t_data *data, int *big_pixel, int *small_pixel)
 
 void	draw_strs(t_data *data)
 {
-	char		*str;
-	int			colors_coll;
+	char	*str;
+	int		colors_coll;
 
 	if (data->perso.moove_count == 0)
 		str = "0";
 	else
 		str = ft_itoa(data->perso.moove_count);
 	mlx_string_put(data->mlx, data->win, (data->width_win / 10) + 40,
-		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 34),
-		encode_trgb(255, 0, 0, 0), str);
+		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 34), encode_trgb(255,
+			0, 0, 0), str);
 	if (str && data->perso.moove_count != 0)
 		free(str);
 	if (data->perso.nb_collectible == 0)
@@ -91,9 +90,8 @@ void	draw_strs(t_data *data)
 	colors_coll = encode_trgb(255, 255, 0, 0);
 	if (is_ok(data))
 		colors_coll = encode_trgb(255, 38, 119, 1);
-	mlx_string_put(data->mlx, data->win,
-		(data->width_win / 2 + data->width_win / 14) + 10,
-		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 34),
+	mlx_string_put(data->mlx, data->win, (data->width_win / 2 + data->width_win
+			/ 14) + 10, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 34),
 		colors_coll, str);
 	if (data->perso.nb_collectible != 0 && str)
 		free(str);
@@ -102,11 +100,12 @@ void	draw_strs(t_data *data)
 
 void	draw_overlay(t_data *data)
 {
-	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[0],
-		0, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
+	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[0], 0,
+		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)));
 	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[1],
-		data->width_win / 10, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 16));
+		data->width_win / 10, ((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE)
+			+ 16));
 	mlx_put_image_to_window(data->mlx, data->win, data->map.asset_ptr[2],
-		data->width_win / 2 + data->width_win / 14,
-		((data->height_win) - (EXTRA_HEIGHT * TILE_SIZE) + 16));
+		data->width_win / 2 + data->width_win / 14, ((data->height_win)
+			- (EXTRA_HEIGHT * TILE_SIZE) + 16));
 }

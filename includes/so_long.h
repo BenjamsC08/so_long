@@ -118,8 +118,10 @@ void	try_to_free_player(t_data *data);
 void	try_to_free_enemy(t_data *data);
 int		*get_player_img_data(t_data *data);
 int		*get_enemy_img_data(t_data *data, int y, int x);
-int		*get_map_img_data(t_data *data, int *pos);
+int		*get_map_img_data(t_data *data, char g);
 void	try_to_free_overlay(t_data *data);
 void	draw_overlay(t_data *data);
+char	**map_diversity(t_data *data, char **strs);
+
 
 #endif

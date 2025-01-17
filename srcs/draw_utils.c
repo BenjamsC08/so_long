@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:56:52 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/11 22:28:49 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:14:43 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,13 @@ int	*get_enemy_img_data(t_data *data, int y, int x)
 	return (tiles_data);
 }
 
-int	*get_map_img_data(t_data *data, int *pos)
+int	*get_map_img_data(t_data *data, char g)
 {
-	const int y_max = data->map.y_max;
-	const int x_max = data->map.x_max;
-	if ( y_max > 7 && y_max <= 17 && x_max > 6 && x_max <= 25)
-	{
-		if (pos[0] % 4 == 0 && pos[1] % 3 == 0)
-			return (data->tiles.ground_data[2]);
-		else if (pos[0] == 8 && pos[1] == 8)
-			return (data->tiles.ground_data[1]);
-		else if (pos[0] % 2 == 0 && pos[1] % 5 == 0)
-			return (data->tiles.ground_data[3]);
-
-	}
+	if (g == '2')
+		return (data->tiles.ground_data[1]);
+	if (g == '3')
+		return (data->tiles.ground_data[2]);
+	if (g == '4')
+		return (data->tiles.ground_data[3]);
 	return (data->tiles.ground_data[0]);
 }

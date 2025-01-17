@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 07:23:19 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 14:16:44 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:34:49 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ int	count_lines(char *path_map)
 		free(str);
 		str = get_next_line(fd);
 	}
-	close (fd);
+	close(fd);
 	return (nb_lines);
 }
 
 char	**get_map(t_data *data, int *len_line)
 {
-	char			*str;
-	char			**strs;
-	const int		fd = open((char *)data->path, O_RDONLY);
-	static int		i = 0;
+	char		*str;
+	char		**strs;
+	const int	fd = open((char *)data->path, O_RDONLY);
+	static int	i = 0;
 
 	strs = malloc(sizeof(char *) * (data->map.y_max + 1));
-	if (! strs)
+	if (!strs)
 		return (NULL);
 	str = get_next_line(fd);
 	while (i < data->map.y_max && str != NULL)
@@ -53,9 +53,10 @@ char	**get_map(t_data *data, int *len_line)
 		str = get_next_line(fd);
 	}
 	strs[i] = NULL;
-	close (fd);
+	close(fd);
 	data->collectibles = check_map(strs, data, *len_line);
 	if (data->collectibles == 0)
 		return (free_tabtab(strs), NULL);
+	strs = map_diversity(data, strs);
 	return (strs);
 }

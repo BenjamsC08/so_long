@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 21:28:58 by benjamsc          #+#    #+#             */
-/*   Updated: 2024/12/30 07:15:53 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/01/17 03:36:45 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,32 @@ char	**extract_bp_to_win(t_data *data, int k)
 	return (map);
 }
 
-// le but est de recuperer Y et X du player et regarder la distance 
+char	**map_diversity(t_data *data, char **strs)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while ((++y) < data->map.y_max)
+	{
+		x = 0;
+		while ((++x) < data->map.x_max)
+		{
+			if (strs[y][x] == '0')
+			{
+				if ((x + y) % 2 == 0 && (x % 2 == 0 || y % 3 == 0))
+					strs[y][x] = '3';
+				else if ((x + y) % 3 == 0 && y % 3 == 0)
+					strs[y][x] = '4';
+				else if ((x + y) % 10 == 0)
+					strs[y][x] = '2';
+			}
+		}
+	}
+	return (strs);
+}
+
+// le but est de recuperer Y et X du player et regarder la distance
 // qu'il est du top/down et de left/right avec map x_max et map.y_max
 // un fois que l'on a ont essaye de mettre le player le plus au centre possible
 //
