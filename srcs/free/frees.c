@@ -15,15 +15,15 @@
 void	classic_close(t_data *data)
 {
 	free(data->path);
+	if (data->map.win && data->map.win != data->map.bp)
+		free_tabtab(data->map.win);
+	if (data->map.bp != NULL)
+		free_tabtab(data->map.bp);
 }
 
 int	close_all(t_data *data)
 {
 	classic_close(data);
-	if (data->map.win != data->map.bp)
-		free_tabtab(data->map.win);
-	if (data->map.bp != NULL)
-		free_tabtab(data->map.bp);
 	data->map.bp = NULL;
 	free_img(data);
 	mlx_destroy_window(data->mlx, data->win);

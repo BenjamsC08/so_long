@@ -107,5 +107,6 @@ void	map_data(t_data *data)
 	if (!ground_img(data))
 		classic_close(data);
 	base_map_img(data);
-	overlay_img(data);
+	if (!overlay_img(data))
+		classic_close(data);
 }

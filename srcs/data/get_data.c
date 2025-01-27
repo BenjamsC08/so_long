@@ -48,16 +48,21 @@ static void	win_data(t_data *data)
 
 int	load_data(t_data *data)
 {
+	data->map.win = NULL;
 	win_data(data);
 	if (!data->map.bp)
 		return (0);
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (0);
+		return (classic_close(data), 0);
 	data->win = mlx_new_window(data->mlx, data->width_win,
 			data->height_win, "so_long");
 	if (!data->win)
-		return (0);
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		return (classic_close(data), 0);
+	}
 	map_data(data);
 	player_data(data);
 	if (data->enemy.is_on == 1)
