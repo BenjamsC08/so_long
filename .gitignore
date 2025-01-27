@@ -1,3 +1,6 @@
 *.o
 */*.o
 /so_long
+/mlx_linux
+/mlx_linux/*
+minilibx-linux.tgz
