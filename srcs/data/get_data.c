@@ -58,11 +58,11 @@ int	load_data(t_data *data)
 	data->win = mlx_new_window(data->mlx, data->width_win,
 			data->height_win, "so_long");
 	if (!data->win)
-    return (in_run_free(data), 0);
+		return (in_run_free(data), 0);
 	if (!map_data(data))
-    return (in_run_free(data), 0);
+		return (in_run_free(data), 0);
 	if (!player_data(data))
-    return (in_run_free(data), 0);
+		return (in_run_free(data), 0);
 	if (data->enemy.is_on == 1)
   {
 		if (!enemy_data(data))
