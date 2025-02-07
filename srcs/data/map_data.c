@@ -102,11 +102,12 @@ static int	overlay_img(t_data *data)
 	return (1);
 }
 
-void	map_data(t_data *data)
+int	map_data(t_data *data)
 {
 	if (!ground_img(data))
-		classic_close(data);
+		return (0);
 	base_map_img(data);
 	if (!overlay_img(data))
-		classic_close(data);
+    return (0);
+  return (1);
 }

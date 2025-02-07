@@ -51,3 +51,15 @@ void	free_aprox_map(char **map, int i)
 		free(map[j++]);
 	free(map);
 }
+
+void    in_run_free(t_data *data)
+{
+  try_to_free_overlay(data);
+  try_to_free_player(data);
+  try_to_free_enemy(data);
+  classic_close(data);
+  mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	exit(1);
+}

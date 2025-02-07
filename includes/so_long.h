@@ -40,13 +40,13 @@
 //
 // data/
 //		enemy_data.c
-void	enemy_data(t_data *data);
+int	  enemy_data(t_data *data);
 //		get_data.c
 int		load_data(t_data *data);
 //		map_data.c
-void	map_data(t_data *data);
+int	  map_data(t_data *data);
 //		player_data.c
-void	player_data(t_data *data);
+int 	player_data(t_data *data);
 //
 // draw/
 //		colors_utils.c
@@ -95,7 +95,6 @@ char	**map_diversity(t_data *data, char **strs);
 //
 // enemy.c
 //
-void	enemy_data(t_data *data);
 void	enemy_moove(t_data *data);
 //
 // errors.c

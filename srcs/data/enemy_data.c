@@ -63,13 +63,15 @@ static void	enemy_img_x(t_data *data)
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }
 
-void	enemy_data(t_data *data)
+int	enemy_data(t_data *data)
 {
 	data->enemy.ptr = NULL;
 	data->enemy.data = NULL;
-	enemy_malloc(data);
+	if (!enemy_malloc(data))
+    return (0);
 	enemy_img_y(data);
 	enemy_img_x(data);
 	data->enemy.dir = 'D';
 	data->enemy.step = 0;
+  return (1);
 }

@@ -83,7 +83,7 @@ static void	player_img_x(t_data *data)
 			&data->map.bpp, &data->map.line_len, &data->map.endian);
 }
 
-void	player_data(t_data *data)
+int	player_data(t_data *data)
 {
 	data->perso.down_ptr = NULL;
 	data->perso.down_data = NULL;
@@ -93,11 +93,13 @@ void	player_data(t_data *data)
 	data->perso.right_data = NULL;
 	data->perso.left_ptr = NULL;
 	data->perso.left_data = NULL;
-	player_malloc(data);
+	if(!player_malloc(data))
+    return (0);
 	player_img_y(data);
 	player_img_x(data);
 	data->perso.moove_count = 0;
 	data->perso.dir = 'D';
 	data->perso.step = 0;
 	data->perso.nb_collectible = 0;
+  return (1);
 }
