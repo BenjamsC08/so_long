@@ -119,4 +119,6 @@ int		ending(t_data *data, char to, int *pos);
 
 int		checker(void);
 
+void    in_run_free(t_data *data);
+
 #endif
