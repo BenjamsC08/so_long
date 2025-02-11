@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:13:11 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/11 22:29:19 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/02/11 21:25:31 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	load_data(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (classic_close(data), 0);
-	data->win = mlx_new_window(data->mlx, data->width_win,
-			data->height_win, "so_long");
+	data->win = mlx_new_window(data->mlx, data->width_win, data->height_win,
+			"so_long");
 	if (!data->win)
 		return (in_run_free(data), 0);
 	if (!map_data(data))
@@ -64,10 +64,10 @@ int	load_data(t_data *data)
 	if (!player_data(data))
 		return (in_run_free(data), 0);
 	if (data->enemy.is_on == 1)
-  {
+	{
 		if (!enemy_data(data))
-      return (in_run_free(data), 0);
-  }
+			return (in_run_free(data), 0);
+	}
 	data->enemy.idling = 0;
 	return (1);
 }

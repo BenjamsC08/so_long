@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: benjamsc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 21:25:36 by benjamsc          #+#    #+#             */
+/*   Updated: 2025/02/11 21:25:36 by benjamsc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
 
@@ -9,7 +20,7 @@ static char	*ft_linedup(const char *s)
 
 	l_src = ft_strlen(s);
 	str = (char *)malloc((l_src + 1) * sizeof(char));
-	if (! str)
+	if (!str)
 		return (0);
 	src = str;
 	if (*s == '"')
@@ -22,33 +33,33 @@ static char	*ft_linedup(const char *s)
 
 static int	list_fill(char **list, int fd)
 {
-	char		**split;
-	char		*line;
+	char	**split;
+	char	*line;
 
 	split = NULL;
 	line = get_next_line(fd);
 	while (line != NULL)
-    {
-        if (ft_strncmp(line, "# define", 7) == 0)
-        {
-            split = ft_split(line, ' ');
-            if (split && split[3])
+	{
+		if (ft_strncmp(line, "# define", 7) == 0)
+		{
+			split = ft_split(line, ' ');
+			if (split && split[3])
 			{
-                *list = ft_linedup(split[3]);
+				*list = ft_linedup(split[3]);
 				if (!(*list))
 					return (0);
 				list++;
 			}
-            free_tabtab(split);
-        }
-        free(line);
+			free_tabtab(split);
+		}
+		free(line);
 		line = get_next_line(fd);
-    }
+	}
 	*list = NULL;
 	return (1);
 }
 
-static char **list_img()
+static char	**list_img(void)
 {
 	char		**list;
 	char		**save;
@@ -65,7 +76,6 @@ static char **list_img()
 	close(fd);
 	return (save);
 }
-
 
 static int	check_opened_map_img(void *mlx, int x, int y)
 {

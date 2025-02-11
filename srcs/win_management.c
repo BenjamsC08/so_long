@@ -56,7 +56,7 @@ static int	key_hook(int keycode, t_data *data)
 	if (data->enemy.is_on == 1)
 		enemy_moove(data);
 	draw_all(data);
-	ft_printf("%d\n", data->perso.moove_count);
+	ft_printf("%d\r", data->perso.moove_count);
 	return (0);
 }
 
@@ -65,7 +65,7 @@ static int	idling_hook(t_data *data)
 	static int	frame_counter = 0;
 
 	frame_counter++;
-	if (frame_counter % 10000 == 0)
+	if (frame_counter % 50000 == 0)
 	{
 		if (data->enemy.idling == 0)
 			data->enemy.idling = 1;

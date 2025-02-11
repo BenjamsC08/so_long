@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:21:02 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/17 04:33:15 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/02/11 21:25:38 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@
 //
 // data/
 //		enemy_data.c
-int	  enemy_data(t_data *data);
+int		enemy_data(t_data *data);
 //		get_data.c
 int		load_data(t_data *data);
 //		map_data.c
-int	  map_data(t_data *data);
+int		map_data(t_data *data);
 //		player_data.c
-int 	player_data(t_data *data);
+int		player_data(t_data *data);
 //
 // draw/
 //		colors_utils.c
@@ -119,6 +119,6 @@ int		ending(t_data *data, char to, int *pos);
 
 int		checker(void);
 
-void    in_run_free(t_data *data);
+void	in_run_free(t_data *data);
 
 #endif

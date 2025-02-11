@@ -6,7 +6,7 @@
 /*   By: benjamsc <benjamsc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 09:21:24 by benjamsc          #+#    #+#             */
-/*   Updated: 2025/01/12 00:07:28 by benjamsc         ###   ########.fr       */
+/*   Updated: 2025/02/11 21:25:40 by benjamsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,5 @@
 # define OVERLAY_BACKGROUND "./textures/other/datav1.xpm"
 # define OVERLAY_COLL_BANNER "./textures/other/collBanner.xpm"
 # define OVERLAY_STEP_BANNER "./textures/other/stepBanner.xpm"
-
 
 #endif
