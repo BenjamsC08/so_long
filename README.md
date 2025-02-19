@@ -23,7 +23,7 @@ La gestion de la libération des ressources a été un des aspects les plus diff
 Ce projet m'a également permis d'approfondir ma compréhension des structures en C et de l'utilisation des fichiers d'en-tête. J'ai appris à organiser les fichiers d'en-tête de manière plus propre et efficace, ce qui permet non seulement de mieux structurer le code mais aussi de faciliter son évolution et sa maintenance. L'utilisation adéquate des structures et des headers est essentielle pour créer un code modulaire et réutilisable.
 
 ### Conclusion
-Le projet **So_Long** m'a permis de renforcer mes compétences techniques en programmation C, en gestion des ressources et en organisation de projets (21x *.c, 1768 lines). Ces compétences sont essentielles pour tout programmeur, et ce projet a été un excellent moyen de les perfectionner dans un cadre pratique et concret.
+Le projet **So_Long** m'a permis de renforcer mes compétences techniques en programmation C, en gestion des ressources et en organisation de projets (21x *.c, 1537 lines). Ces compétences sont essentielles pour tout programmeur, et ce projet a été un excellent moyen de les perfectionner dans un cadre pratique et concret.
 
 ---
 
