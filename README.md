@@ -10,7 +10,7 @@
 
 ---
 
-## 🇫🇷 Explication
+## <a name="explication-fr"></a>🇫🇷 Explication
 
 ### Objectif
 Créer un jeu **Top-Down** avec les seules ressources que sont la **minilibX** et ma **libft** précédemment créée.
@@ -37,7 +37,7 @@ Le projet **So_Long** m'a permis de renforcer mes compétences techniques en pro
 
 ---
 
-## 🇬🇧 Explanation
+## <a name="explanation-en"></a>🇬🇧 Explanation
 
 ### Objective
 Create a **Top-Down** game using only the resources of **minilibX** and my previously created **libft**.
