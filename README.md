@@ -1,5 +1,7 @@
 # So_Long
 
+![](https://github.com/BenjamsC08/so_long/blob/main/.ressources_git/so_long_1.gif)
+
 ## 🇫🇷 Explication
 
 ### Objectif
