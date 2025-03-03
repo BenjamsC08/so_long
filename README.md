@@ -1,6 +1,14 @@
-# So_Long
+<h1 align="center">So_Long</h1>
 
-![](https://github.com/BenjamsC08/so_long/blob/main/.ressources_git/so_long_1.gif)
+<p align="center">
+  <a href="#explication-fr">🇫🇷</a> | <a href="#explanation-en">🇬🇧</a>
+</p>
+
+<p align="center">
+  <img src="https://github.com/BenjamsC08/so_long/blob/main/.ressources_git/so_long_1.gif" alt="GIF du projet So_Long">
+</p>
+
+---
 
 ## 🇫🇷 Explication
 
